@@ -11,7 +11,29 @@ describe("Calculator", function () {
         return { contract, accounts };
     }
 
-    it("Should deploy", async () => {
+    it("Calculate the sum of two numbers", async () => {
         const { contract, accounts } = await loadFixture(deployFixture);
+
+        expect(await contract.sum(10, 20)).to.equal(30);
     });
+
+    it("Calculate the subtraction of two numbers", async () => {
+        const { contract, accounts } = await loadFixture(deployFixture);
+
+        expect(await contract.subtraction(30, 15)).to.equal(15);
+    });
+
+    it("Calculate the multiplication of two numbers", async () => {
+        const { contract, accounts } = await loadFixture(deployFixture);
+
+        expect(await contract.multiplication(7, 2)).to.equal(14);
+    });
+
+    it("Calculate the division of two numbers", async () => {
+        const { contract, accounts } = await loadFixture(deployFixture);
+
+        expect(await contract.division(10, 5)).to.equal(2);
+    });
+
+    
 });
